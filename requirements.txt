@@ -1,0 +1,8 @@
+# NetSage AI - Python Dependencies
+# Version 1 uses ONLY Python built-in modules (csv, datetime, os, etc.)
+# No external libraries required to run the project.
+#
+# Future versions may add:
+# openai        # For AI API integration (v2+)
+# pandas        # For advanced CSV/data handling (optional)
+# rich          # For prettier console output (optional)

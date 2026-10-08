@@ -1,0 +1,1879 @@
+timestamp,case_id,decision,original_findings_summary,final_findings_summary,reviewer_notes
+2026-08-29 14:00:22,C001,ACCEPTED,(orig summary for C001),(final summary for C001),Automated smoke test note for C001
+2026-08-29 14:00:22,C002,EDITED,(orig summary for C002),(final summary for C002),Automated smoke test note for C002
+2026-08-29 14:00:22,C003,REJECTED,(orig summary for C003),(final summary for C003),Automated smoke test note for C003
+2026-08-29 14:00:22,C004,ACCEPTED,(orig summary for C004),(final summary for C004),Automated smoke test note for C004
+2026-08-29 14:00:23,C005,ACCEPTED,(orig summary for C005),(final summary for C005),Automated smoke test note for C005
+2026-08-29 14:00:23,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:17:21,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:17:21,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #3 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   PC may be missing default gateway
+Suggestion: Set the default gateway. On a PC: configure IPv4 settings with the gateway. On a switch: ip default-gateway <gateway_ip>
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      IP connectivity failure between devices
+Evidence:   AI noted ping/connectivity failure in reported symptoms
+Suggestion: Step-by-step check:
+  1. Verify each device has correct IP + subnet mask.
+  2. Confirm default gateway is set for cross-subnet traffic.
+  3. Ping the default gateway from the affected device.
+  4. Use 'traceroute' to find the failing hop.
+
+--- Finding #5 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; nam","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #3 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   PC may be missing default gateway
+Suggestion: Set the default gateway. On a PC: configure IPv4 settings with the gateway. On a switch: ip default-gateway <gateway_ip>
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      IP connectivity failure between devices
+Evidence:   AI noted ping/connectivity failure in reported symptoms
+Suggestion: Step-by-step check:
+  1. Verify each device has correct IP + subnet mask.
+  2. Confirm default gateway is set for cross-subnet traffic.
+  3. Ping the default gateway from the affected device.
+  4. Use 'traceroute' to find the failing hop.
+
+--- Finding #5 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; nam",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:18:56,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:18:56,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interfa","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interfa",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:18:56,C003,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:18:56,C004,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Link light is off | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Network interface is down
+Evidence:   Found 'administratively down' in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Link light is off | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Network interface is down
+Evidence:   Found 'administratively down' in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:18:57,C005,ACCEPTED,"--- Finding #1 [LOW] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      No obvious rule violations found
+Evidence:   All rule checks passed without triggering any conditions
+Suggestion: Investigate further. Check routing protocols, ACLs, DNS, or less-common issues.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [LOW] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      No obvious rule violations found
+Evidence:   All rule checks passed without triggering any conditions
+Suggestion: Investigate further. Check routing protocols, ACLs, DNS, or less-common issues.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:54,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Show output mentions duplicate IP; Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:54,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interfa","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Symptom mentions possible cable problem | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and ping fails
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interfa",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:54,C003,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line | [AI] AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:55,C004,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Link light is off | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Network interface is down
+Evidence:   Found 'administratively down' in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Possible physical layer issue (cable or port) [AGREED]
+Evidence:   [RULE] Link light is off | [AI] AI suspects physical layer based on cable/link-related keywords
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+Inspect all physical connections:
+  - Cables seated firmly, link lights active on both ends
+  - Correct cable category and type (straight-through vs crossover)
+  - Switch/device port not faulty
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Network interface is down
+Evidence:   Found 'administratively down' in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:55,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible VLAN configuration problem
+Evidence:   AI found VLAN-related keywords in the case data
+Suggestion: Verify:
+  1. Correct VLAN exists on all switches (vlan <id> ; name <name>).
+  2. Access ports are assigned to the intended VLAN.
+  3. Trunk ports allow the VLAN (switchport trunk allowed vlan add <id>).
+
+--- Finding #3 [LOW] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible DNS or name resolution issue
+Evidence:   AI found DNS/name-resolution related keywords
+Suggestion: Verify DNS server IP is configured on the client. Test with 'nslookup <hostname>' or ping by IP address directly to isolate DNS vs routing problem.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 14:19:55,C006,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      IP connectivity failure between devices
+Evidence:   AI noted ping/connectivity failure in reported symptoms
+Suggestion: Step-by-step check:
+  1. Verify each device has correct IP + subnet mask.
+  2. Confirm default gateway is set for cross-subnet traffic.
+  3. Ping the default gateway from the affected device.
+  4. Use 'traceroute' to find the failing hop.
+
+--- Finding #5 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible physical layer (Layer 1) problem
+Evidence:   AI suspects physical layer based on cable/link-relate","--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Interface appears to be disabled or disconnected
+Evidence:   AI detected keywords suggesting interface is not operational: 'down'/'shutdown' found in case data
+Suggestion: Verify interface status with 'show ip interface brief'. Enable the interface using 'no shutdown' if administratively down.
+
+--- Finding #4 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      IP connectivity failure between devices
+Evidence:   AI noted ping/connectivity failure in reported symptoms
+Suggestion: Step-by-step check:
+  1. Verify each device has correct IP + subnet mask.
+  2. Confirm default gateway is set for cross-subnet traffic.
+  3. Ping the default gateway from the affected device.
+  4. Use 'traceroute' to find the failing hop.
+
+--- Finding #5 [MEDIUM] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Possible physical layer (Layer 1) problem
+Evidence:   AI suspects physical layer based on cable/link-relate",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 15:45:15,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:08:05,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   Symptom reports IP conflict
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Potential subnet mask misconfiguration
+Evidence:   AI detected subnet/mask keywords suggesting addressing issue
+Suggestion: Double-check that ALL devices on the same LAN share the same subnet mask and their IP addresses fall within the same network range.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:16:41,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:28,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:29,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:30,C003,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:30,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:31,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:17:31,C006,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+","--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:01,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:02,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:02,C003,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:03,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:03,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:04,C006,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+","--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:19,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:20,C002,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Configured gateway 192.168.20.1 does not match any router/gateway IP in topology (expected one of: 192.168.20.0, 255.255.255.0); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']; configured gateway 192.168.20.1 does not match any topology-declared router/gateway IP in ['192.168.20.0', '255.255.255.0']
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line; Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: explicit (WRONG) annotation on a subnet mask line; multiple different subnet ",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:20,C003,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:21,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output; interface status line reports administratively down; running-config contains 'shutdown' under an interface
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:21,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+","--- Finding #1 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Access port references a VLAN marked 'Inactive' - VLAN does not exist in switch database; Evidence contains explicit note that a VLAN is missing/not created; Topology plan requires VLAN(s) [50] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing VLAN - referenced VLAN was never created on the switch
+Evidence:   AI detected missing-VLAN indicators: 'Access Mode VLAN: NN (Inactive)' flag present; VLAN IDs [50] referenced but absent from vlan table; explicit text says VLAN is missing / does not exist
+Suggestion: Create the VLAN on the switch:
+  enable
+  configure terminal
+  vlan <vlan_id>
+   name <DescriptiveName>
+  end
+Verify with 'show interfaces <port> switchport' that Access Mode VLAN becomes 'active'.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:18:22,C006,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+","--- Finding #1 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Default gateway is missing or incorrect
+Evidence:   Gateway explicitly flagged 'not set' in show output
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Missing static route - router does not know how to reach remote subnet
+Evidence:   Two-router topology detected (static route scenario); Symptom reports unreachable remote subnet; No gateway of last resort (no default route)
+Suggestion: Add a static route on each router pointing toward the opposite LAN. Example on R1: ip route 192.168.2.0 255.255.255.0 10.0.0.2 (where 10.0.0.2 is R2's serial/link address). And corresponding reverse route on R2: ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Missing static route(s) between two routers
+Evidence:   AI detected two-router topology missing static route evidence: topology declares two routers; show ip route has no S (static) entry; explicit missing/absent note found
+Suggestion: Add bidirectional static routes. On R1: ip route <R2_LAN> <mask> <next_hop_R2_IP>. On R2: ip route <R1_LAN> <mask> <next_hop_R1_IP>.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 16:24:27,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",Duplicate IP diagnosis reviewed and accepted. I will assign a unique IP address to PC1 and verify connectivity using ping.
+2026-08-29 20:02:01,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Topology plan requires VLAN(s) [1] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      VLAN assignment mismatch detected
+Evidence:   Topology plan requires VLAN(s) [1] but they are absent from switch VLAN table
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+
+--- Finding #3 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      IP address conflict or missing IP configuration
+Evidence:   No IP configuration found and",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 20:04:33,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Symptom mentions possible cable problem
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Symptom mentions possible cable problem
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 20:05:11,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 20:25:36,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 20:28:12,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 20:31:33,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-29 22:22:23,C003,ACCEPTED,"--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+","--- Finding #1 [MEDIUM] [confidence:HIGH] [group:agreed] ---
+Issue:      Default gateway is missing or incorrect [AGREED]
+Evidence:   [RULE] Symptom reports inability to reach different/remote subnet; Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Configured gateway 192.168.30.11 does not match any router/gateway IP in topology (expected one of: 192.168.30.1, 10.0.50.1, 10.0.50.50); Show output contains explicit 'WRONG gateway' annotation | [AI] AI found gateway-mismatch indicators: configured gateway 192.168.30.11 does not match any topology-declared router/gateway IP in ['10.0.50.1', '10.0.50.50', '192.168.30.1']; symptom: cannot reach devices on a different subnet; explicit (WRONG) annotation on a default gateway line
+Suggestion: Set the CORRECT default gateway. On a PC: Desktop > IP Configuration and set Default Gateway to the router's LAN IP (x.x.x.1 typically). On a switch/management: ip default-gateway <gateway_ip>.
+On the end device set Default Gateway to the correct router LAN IP (usually x.x.x.1 for that subnet).
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Subnet mask is incorrect or mismatched
+Evidence:   Evidence contains explicit WRONG annotation on subnet mask; Evidence contains explicit (WRONG) marker on subnet mask line
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+","Both findings reviewed and accepted. I will correct the default gateway and subnet mask in Packet Tracer, then verify connectivity."
+2026-08-30 13:04:07,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:32:14,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] No IP configuration found and ping fails | [AI] AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.0. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      VLAN Assignment Mismatch - same IP subnet but different access VLANs
+Evidence:   AI detected VLAN assignment-mismatch indicators: explicit note references same subnet but different VLAN assignments
+Suggestion: Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] No IP configuration found and ping fails | [AI] AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.0. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      VLAN Assignment Mismatch - same IP subnet but different access VLANs
+Evidence:   AI detected VLAN assignment-mismatch indicators: explicit note references same subnet but different VLAN assignments
+Suggestion: Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:52:22,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] No IP configuration found and ping fails | [AI] AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.0. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      VLAN Assignment Mismatch - same IP subnet but different access VLANs
+Evidence:   AI detected VLAN assignment-mismatch indicators: explicit note references same subnet but different VLAN assignments
+Suggestion: Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] No IP configuration found and ping fails | [AI] AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.0. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      VLAN Assignment Mismatch - same IP subnet but different access VLANs
+Evidence:   AI detected VLAN assignment-mismatch indicators: explicit note references same subnet but different VLAN assignments
+Suggestion: Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:55:02,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Duplicate IP Address - 192.168.50.11 assigned to multiple devices
+Evidence:   AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.11. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+
+--- Finding #2 [HIGH] [confidence:MEDIUM (AI only)] [group:ai_only] ---
+Issue:      Duplicate IP Address - 192.168.50.11 assigned to multiple devices
+Evidence:   AI extracted IPv4 addresses from ipconfig output. multiple hosts are both configured with 192.168.50.11. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:56:07,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:56:34,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:56:48,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 16:57:02,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:07:45,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:08:36,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:08:52,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:09:01,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:17:50,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:17:51,C002,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Subnet mask is incorrect or mismatched [AGREED]
+Evidence:   [RULE] Multiple different subnet masks found on end devices: ['255.255.0.0', '255.255.255.0'] (should be identical for devices on the same LAN); Configured mask 255.255.0.0 does NOT match topology plan mask(s) ['255.255.255.0']; Topology plan uses /24 (255.255.255.0) but a device configured /16 (255.255.0.0) | [AI] AI found mismatched-mask evidence: multiple different subnet masks configured across devices: ['255.255.0.0', '255.255.255.0']; configured mask 255.255.0.0 not in topology plan mask(s) ['255.255.255.0']; topology expects /24 but a device configured /16 (255.255.0.0)
+Suggestion: Verify the planned mask for the subnet and reconfigure ALL end devices. For /24 networks use 255.255.255.0 uniformly. On a PC: Desktop > IP Configuration > correct Subnet Mask field. On a router/switch interface: ip address <correct_ip> <correct_mask>.
+Apply the correct planned subnet mask uniformly across all devices on that LAN segment. For /24 networks use 255.255.255.0.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:17:51,C004,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      Network interface is down [AGREED]
+Evidence:   [RULE] Found 'administratively down' in show output | [AI] AI found interface-down markers: 'administratively down' appears in show output
+Suggestion: On the affected device, enter interface config mode and run: no shutdown
+Enable the affected interface in global config mode:
+  interface <name>
+  no shutdown
+Then verify with 'show ip interface brief'.
+
+--- Finding #2 [MEDIUM] [confidence:MEDIUM (rule only)] [group:rule_only] ---
+Issue:      Possible physical layer issue (cable or port)
+Evidence:   Link light is off
+Suggestion: 1. Check that Ethernet cable is securely plugged in on both ends.
+2. Try a known-good replacement cable.
+3. Try a different switch port.
+4. Verify correct cable type (straight-through vs crossover).
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:17:51,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",[DEMO MODE] Auto-accepted for testing purposes.
+2026-08-30 17:19:14,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",Web UI smoke test: accepted.
+2026-08-30 17:20:16,C005,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      VLAN assignment mismatch detected [AGREED]
+Evidence:   [RULE] Access ports assigned to DIFFERENT VLANs [1, 50] even though end hosts share an IP subnet: Fa0/10:VLAN50, Fa0/11:VLAN1 | [AI] AI detected VLAN assignment-mismatch indicators: Access ports assigned DIFFERENT VLANs [1, 50] while hosts share an IP subnet: Fa0/10 -> VLAN50 (ENGINEERING), Fa0/11 -> VLAN1 (default); explicit note references same subnet but different VLAN assignments
+Suggestion: Verify switch VLAN configuration. Step-by-step:
+  1. Create required VLANs:  configure terminal
+                               vlan <id>
+                                name <DescriptiveName>
+  2. Assign correct access VLAN per port:
+                               interface <port>
+                                switchport mode access
+                                switchport access vlan <correct_id>
+  3. Verify with:  show vlan brief
+                   show interfaces <port> switchport
+Assign all access ports that serve the same IP subnet to the SAME VLAN on the switch. For each port:
+  enable
+  configure terminal
+  interface <port>
+   switchport mode access
+   switchport access vlan <correct_id>
+  end
+Verify with 'show vlan brief' and ping between the end hosts.
+",Smoke test: accepted via web API wrapper.
+2026-08-30 17:34:25,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",
+2026-08-31 11:41:46,C001,ACCEPTED,"--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+","--- Finding #1 [HIGH] [confidence:HIGH] [group:agreed] ---
+Issue:      IP address conflict or missing IP configuration [AGREED]
+Evidence:   [RULE] Symptom reports IP conflict | [AI] AI extracted IPv4 addresses from ipconfig output. PC0 and PC1 are both configured with 192.168.1.10. Keyword context also shows conflict/duplicate language: 'duplicate IP'/'same IPv4 address'/'two different devices' detected.
+Suggestion: Assign a unique, unused IP address from the correct subnet. Use: ip address <ip> <subnet_mask> in interface config mode.
+Assign a unique, unused IP address to one of the devices, then verify connectivity with ping.
+",

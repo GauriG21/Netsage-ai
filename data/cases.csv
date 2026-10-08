@@ -1,0 +1,185 @@
+case_id,case_name,symptom,topology,show_command_evidence,expected_fault,osi_layer,concept_tag,severity,expected_fix
+C001,Duplicate IP Address,"PC-A and PC-B both report 'Windows has detected an IP address conflict'. Intermittent ping. Only one PC can reach the gateway at a time.","1x 2960 switch S1, 2x Generic PCs (PC-A, PC-B). Same LAN 192.168.10.0/24, gateway 192.168.10.1 on router port.","[ACTUAL PACKET TRACER EVIDENCE - Collected from real Cisco Packet Tracer scenario by student]
+Topology note: Both PCs connected through Switch0.
+The same IPv4 address is configured on two different devices.
+
+PC0> ipconfig
+IPv4 Address: 192.168.1.10
+Subnet Mask: 255.255.255.0
+
+PC1> ipconfig
+IPv4 Address: 192.168.1.10
+Subnet Mask: 255.255.255.0
+[/ACTUAL PACKET TRACER EVIDENCE]","Duplicate IP - two hosts share 192.168.10.25",Layer 3 (Network),IPv4 Addressing,high,"Reconfigure PC-B to a free IP in the same subnet (e.g., 192.168.10.26). Desktop > IP Configuration: set IPv4 Address = 192.168.10.26, Subnet Mask = 255.255.255.0, Gateway = 192.168.10.1. Verify with ping 192.168.10.25 from PC-A."
+C002,Wrong Subnet Mask,"PC-Sales cannot ping PC-Marketing even though they are on the same cable plant. Ping returns 'Destination host unreachable' locally.","1x 2960 switch S1, 2x PCs: PC-Sales, PC-Marketing. Both intended to be on VLAN 1, subnet 192.168.20.0/24 (255.255.255.0). No router between them.","[ACTUAL PACKET TRACER EVIDENCE - Collected from real Cisco Packet Tracer scenario by student]
+Topology:
+PC0 and PC1 are connected through Switch0 using their FastEthernet0 connections.
+
+PC0 FastEthernet0:
+IPv4 Address: 192.168.20.10
+Subnet Mask: 255.255.0.0
+
+PC1 FastEthernet0:
+IPv4 Address: 192.168.21.11
+Subnet Mask: 255.255.255.0
+
+Symptom:
+From PC0, I ran:
+
+ping 192.168.21.11
+
+Result:
+Request timed out.
+
+Ping statistics for 192.168.21.11:
+Packets: Sent = 4
+Received = 0
+Lost = 4 (100% loss)
+[/ACTUAL PACKET TRACER EVIDENCE]","Subnet mask mismatch: PC-Sales uses 255.255.0.0 instead of 255.255.255.0",Layer 3 (Network),Subnetting / IPv4 Addressing,high,"On PC-Sales open Desktop > IP Configuration. Change Subnet Mask from 255.255.0.0 to 255.255.255.0. Leave IP 192.168.20.10 and gateway 192.168.20.1 unchanged. Ping 192.168.20.11 should then succeed."
+C003,Default Gateway Mismatch,"PC-Student can ping its local router interface and nearby PCs, but cannot reach the school server on a different subnet (10.0.50.50). Ping to the server reports 'Request timed out'.","1x 1941 router R1 with two LANs. LAN-A (Fa0/0: 192.168.30.1/24) = student PCs. LAN-B (Fa0/1: 10.0.50.1/24) = school server (10.0.50.50). R1 routes between both. PC-Student is on LAN-A with static IP.","[SAMPLE - replace with real Packet Tracer output]
+PC-Student> ipconfig /all
+IPv4 Address....................: 192.168.30.21
+Subnet Mask.....................: 255.255.255.0
+Default Gateway.................: 192.168.30.11    (WRONG - non-existent gateway)
+DNS Servers.....................: 8.8.8.8
+
+R1# show ip interface brief
+Interface          IP-Address   OK? Status  Protocol
+GigabitEthernet0/0 192.168.30.1 YES manual up    up       (actual LAN-A gateway)
+GigabitEthernet0/1 10.0.50.1    YES manual up    up       (LAN-B gateway)
+
+PC-Student> ping 192.168.30.1
+Reply from 192.168.30.1: bytes=32 time<1ms TTL=255      (OK - same subnet)
+
+PC-Student> ping 10.0.50.50
+Pinging 10.0.50.50 with 32 bytes of data:
+Request timed out.
+Request timed out.                                     (FAILS - no gateway to reach other subnet)
+
+School-Server> ping 192.168.30.21
+Pinging 192.168.30.21 with 32 bytes of data:
+Reply from 192.168.30.21: bytes=32 time<1ms TTL=127    (inbound works when initiated from other side, if it's routed)
+[/SAMPLE]","Default gateway mismatch: PC-Student points to 192.168.30.11 but the real gateway is 192.168.30.1 (R1)",Layer 3 (Network),Default Gateway / Routing,medium,"On PC-Student: Desktop > IP Configuration. Change Default Gateway from 192.168.30.11 to 192.168.30.1. After the change, ping 10.0.50.50 should succeed (TTL ~127)."
+C004,Interface Administratively Down,"Users connected to S1's Fa0/5 PC port report zero network connectivity. NIC link light is OFF on the PC. Switch shows no activity on that port.","1x 2960 switch S1, PC-Frontdesk plugged into FastEthernet0/5. One switch, one PC. The interface was accidentally shut by a previous student during config practice.","[ACTUAL PACKET TRACER EVIDENCE - Collected from real Cisco Packet Tracer scenario by student]
+Topology: PC0 is connected through Switch0 to Router0.
+
+PC0> ping 10.0.60.10
+
+Reply from 192.168.40.1: Destination host unreachable
+Reply from 192.168.40.1: Destination host unreachable
+Reply from 192.168.40.1: Destination host unreachable
+Reply from 192.168.40.1: Destination host unreachable
+
+Ping statistics for 10.0.60.10:
+Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)
+
+Switch0# show ip interface brief
+
+FastEthernet0/5  unassigned  YES  manual  administratively down  down
+[/ACTUAL PACKET TRACER EVIDENCE]","Interface Fa0/5 on S1 was left in 'shutdown' state (administratively down)",Layer 2 (Data Link),Cisco IOS - Interface Administration,high,"On S1 enter:
+  enable
+  configure terminal
+  interface FastEthernet0/5
+  no shutdown
+  end
+  write memory
+Afterwards 'show ip interface brief' should show Fa0/5 status 'up' / protocol 'up'. PC-Frontdesk NIC link should come on and ping should succeed."
+C005,VLAN Assignment Mismatch,"PC0 and PC1 are on the same IP subnet (192.168.50.0/24) but cannot ping each other. Ping from PC0 to PC1 fails with 100% packet loss. No router between them - both are plugged into the same Layer 2 switch.","PC0 connected to Switch0 FastEthernet0/10. PC1 connected to Switch0 FastEthernet0/11. Both PCs are in the 192.168.50.0/24 IP network and should be in the same Layer 2 broadcast domain. Switch0 has two VLANs configured: VLAN 1 (default) and VLAN 50 (ENGINEERING).","[ACTUAL PACKET TRACER EVIDENCE - Collected from real Cisco Packet Tracer scenario by student]
+
+Topology:
+PC0 is connected to Switch0 FastEthernet0/10.
+PC1 is connected to Switch0 FastEthernet0/11.
+
+Both PCs are configured in the same IP network:
+PC0: 192.168.50.10 / 255.255.255.0
+PC1: 192.168.50.11 / 255.255.255.0
+
+PC0> ping 192.168.50.11
+
+Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)
+
+Switch0# show vlan brief
+
+VLAN 1   default      active
+VLAN 50  ENGINEERING  active
+
+Switch0# show interfaces fastEthernet 0/10 switchport
+Access Mode VLAN: 50 (ENGINEERING)
+
+Switch0# show interfaces fastEthernet 0/11 switchport
+Access Mode VLAN: 1 (default)
+
+Root cause:
+The two PCs are in the same IP subnet but their switch ports are assigned to different VLANs. Fa0/10 is in VLAN 50 while Fa0/11 is in VLAN 1, so Layer 2 communication between them fails.
+
+Correct fix:
+Assign both intended access ports to the same VLAN, then verify connectivity using ping.
+
+[/ACTUAL PACKET TRACER EVIDENCE]","Switch ports assigned to different VLANs (Fa0/10 in VLAN 50, Fa0/11 in VLAN 1) even though both PCs are in the same IP subnet - VLAN assignment mismatch",Layer 2 (Data Link),VLAN Configuration,high,"Assign both access ports to the same VLAN on Switch0. Example - to place both PCs in VLAN 50 (ENGINEERING):
+  enable
+  configure terminal
+  interface FastEthernet0/11
+   switchport mode access
+   switchport access vlan 50
+   exit
+  end
+  write memory
+Verify with 'show vlan brief' that both Fa0/10 and Fa0/11 appear under VLAN 50, then run ping 192.168.50.11 from PC0 - should succeed."
+C006,Missing Static Route,"PC-LAN-A (192.168.1.10) cannot reach PC-LAN-B (192.168.2.10) on the other side of a two-router serial link. Ping dies at the first router. R1 and R2 are connected via Serial DCE/DTE.","Two 1941 routers R1 and R2 connected via serial (back-to-back DCE/DTE link: R1 S0/0/0 = DCE, 10.0.0.1/30; R2 S0/0/0 = DTE, 10.0.0.2/30). R1 LAN (G0/0: 192.168.1.1/24) = PC-LAN-A. R2 LAN (G0/0: 192.168.2.1/24) = PC-LAN-B. Interfaces and IP addresses are all correct, but NO static routes were configured.","[SAMPLE - replace with real Packet Tracer output]
+R1# show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+C    192.168.1.0/24 is directly connected, GigabitEthernet0/0
+C    10.0.0.0/30 is subnetted, 1 subnets
+C       10.0.0.0 is directly connected, Serial0/0/0
+(NOTE: NO 'S' entry for 192.168.2.0/24 - ROOT CAUSE)
+
+R2# show ip route
+Gateway of last resort is not set
+
+C    192.168.2.0/24 is directly connected, GigabitEthernet0/0
+C    10.0.0.0/30 is subnetted, 1 subnets
+C       10.0.0.0 is directly connected, Serial0/0/0
+(NOTE: NO 'S' entry for 192.168.1.0/24 - ROOT CAUSE)
+
+R1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0     192.168.1.1     YES manual up                    up
+Serial0/0/0            10.0.0.1        YES manual up                    up
+
+R2# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0     192.168.2.1     YES manual up                    up
+Serial0/0/0            10.0.0.2        YES manual up                    up
+
+PC-LAN-A> ping 192.168.2.10
+Pinging 192.168.2.10 with 32 bytes of data:
+Reply from 192.168.1.1: Destination host unreachable.
+Reply from 192.168.1.1: Destination host unreachable.
+
+PC-LAN-A> tracert 192.168.2.10
+Tracing route to 192.168.2.10 over a maximum of 30 hops:
+  1  192.168.1.1  reports: Destination host unreachable.
+Trace complete.
+[/SAMPLE]","Missing bidirectional static routes: R1 has no route to 192.168.2.0/24; R2 has no route to 192.168.1.0/24",Layer 3 (Network),Static Routing,high,"Configure static routes on both routers.
+On R1:
+  enable
+  configure terminal
+  ip route 192.168.2.0 255.255.255.0 10.0.0.2
+  end
+  write memory
+On R2:
+  enable
+  configure terminal
+  ip route 192.168.1.0 255.255.255.0 10.0.0.1
+  end
+  write memory
+Verify with 'show ip route' on each router: an 'S' entry for the remote LAN appears. PC-LAN-A pinging 192.168.2.10 then succeeds."

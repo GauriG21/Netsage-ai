@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetSage AI — Network Fault Diagnosis Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="12" width="14" height="14" rx="2" ry="2" fill="none" stroke="url(#g1)" stroke-width="2"/>
+            <rect x="17" y="2"  width="14" height="14" rx="2" ry="2" fill="none" stroke="url(#g1)" stroke-width="2"/>
+            <rect x="32" y="12" width="14" height="14" rx="2" ry="2" fill="none" stroke="url(#g1)" stroke-width="2"/>
+            <rect x="17" y="22" width="14" height="14" rx="2" ry="2" fill="none" stroke="url(#g1)" stroke-width="2"/>
+            <rect x="17" y="32" width="14" height="14" rx="2" ry="2" fill="none" stroke="url(#g1)" stroke-width="2"/>
+            <line x1="9"  y1="26" x2="17" y2="16" stroke="url(#g1)" stroke-width="1.75"/>
+            <line x1="39" y1="26" x2="31" y2="16" stroke="url(#g1)" stroke-width="1.75"/>
+            <line x1="24" y1="16" x2="24" y2="22" stroke="url(#g1)" stroke-width="1.75"/>
+            <line x1="24" y1="36" x2="24" y2="32" stroke="url(#g1)" stroke-width="1.75"/>
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>NetSage AI</h1>
+          <p class="subtitle">AI-Assisted Network Fault Diagnosis</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="status-pill hitl" title="Mandatory human reviewer in the loop">
+          <span class="dot"></span> Human-in-the-Loop
+        </span>
+        <span class="status-pill version" title="Zero external dependencies, Mock AI enabled">
+          v1 · Mock AI
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ========== CASE SELECTION ========== -->
+    <section class="card section-case-select">
+      <div class="section-head">
+        <h2><span class="kicker">STEP 01</span>Select a Packet Tracer Case</h2>
+        <p class="muted">Pick a completed diagnosis scenario. The system runs the same Python rule-checker and Mock AI used by the CLI.</p>
+      </div>
+      <div class="case-controls">
+        <label class="field">
+          <span class="field-label">Case ID</span>
+          <select id="caseSelect" aria-label="Select case"></select>
+        </label>
+        <div class="case-meta" id="caseMeta" aria-live="polite">
+          <div class="meta-item"><span class="meta-label">Name</span><span class="meta-value" id="metaName">—</span></div>
+          <div class="meta-item"><span class="meta-label">OSI Layer</span><span class="meta-value" id="metaLayer">—</span></div>
+          <div class="meta-item"><span class="meta-label">Concept</span><span class="meta-value" id="metaConcept">—</span></div>
+          <div class="meta-item"><span class="meta-label">Severity</span><span class="meta-value"><span class="sev" id="metaSeverity">—</span></span></div>
+        </div>
+        <div class="actions">
+          <button id="runBtn" class="btn btn-primary" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Run Diagnosis
+          </button>
+        </div>
+      </div>
+      <div class="case-symptom" id="caseSymptomWrap" hidden>
+        <span class="symptom-label">Reported symptom:</span>
+        <p id="caseSymptom"></p>
+      </div>
+    </section>
+
+    <!-- ========== DIAGNOSIS PROCESS ========== -->
+    <section class="card section-process" id="processSection" hidden>
+      <div class="section-head">
+        <h2><span class="kicker">STEP 02</span>Diagnosis Pipeline</h2>
+        <p class="muted">Four stages run in sequence. The last stage requires your decision.</p>
+      </div>
+      <ol class="pipeline" aria-label="Pipeline stages">
+        <li class="stage" data-stage="rule">
+          <div class="stage-index">1</div>
+          <div class="stage-body">
+            <div class="stage-title">Rule-Based Validation</div>
+            <div class="stage-status" data-status>Ready</div>
+          </div>
+        </li>
+        <li class="stage" data-stage="ai">
+          <div class="stage-index">2</div>
+          <div class="stage-body">
+            <div class="stage-title">AI Diagnosis</div>
+            <div class="stage-status" data-status>Ready</div>
+          </div>
+        </li>
+        <li class="stage" data-stage="compare">
+          <div class="stage-index">3</div>
+          <div class="stage-body">
+            <div class="stage-title">Compare Findings</div>
+            <div class="stage-status" data-status>Ready</div>
+          </div>
+        </li>
+        <li class="stage" data-stage="review">
+          <div class="stage-index">4</div>
+          <div class="stage-body">
+            <div class="stage-title">Human Review</div>
+            <div class="stage-status" data-status>Awaiting</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ========== RESULTS ========== -->
+    <section id="resultsSection" hidden>
+      <div class="results-grid">
+
+        <!-- Rule findings card -->
+        <article class="card result-card">
+          <header class="card-head">
+            <div class="card-title-row">
+              <span class="chip chip-rule">RULE CHECKER</span>
+              <h3>Rule-Based Diagnosis</h3>
+            </div>
+          </header>
+          <div class="findings-list" id="ruleFindings"></div>
+        </article>
+
+        <!-- AI findings card -->
+        <article class="card result-card">
+          <header class="card-head">
+            <div class="card-title-row">
+              <span class="chip chip-ai">MOCK AI</span>
+              <h3>AI Diagnosis</h3>
+            </div>
+          </header>
+          <div class="findings-list" id="aiFindings"></div>
+        </article>
+
+      </div>
+
+      <!-- Comparison summary card -->
+      <article class="card comparison-card">
+        <header class="card-head">
+          <div class="card-title-row">
+            <span class="chip chip-compare">COMPARISON</span>
+            <h3>Comparison Result</h3>
+          </div>
+        </header>
+        <div class="comparison-body">
+          <div class="agreement-stats">
+            <div class="stat agreement-ratio">
+              <div class="stat-label">Agreement ratio</div>
+              <div class="stat-value"><span id="agreementPct">0</span>%</div>
+              <div class="progress"><div class="progress-fill" id="agreementBar"></div></div>
+            </div>
+            <div class="stat confidence">
+              <div class="stat-label">Confidence</div>
+              <div class="stat-value"><span id="confidenceBadge" class="confidence-badge">—</span></div>
+              <div class="stat-caption" id="confidenceSummary"></div>
+            </div>
+            <div class="stat counts">
+              <div class="count-row"><span class="count-label agreed">Agreed</span><span id="countAgreed">0</span></div>
+              <div class="count-row"><span class="count-label rule-only">Rule-only</span><span id="countRule">0</span></div>
+              <div class="count-row"><span class="count-label ai-only">AI-only</span><span id="countAi">0</span></div>
+            </div>
+          </div>
+          <div class="agreed-findings-wrap">
+            <h4>Agreed findings</h4>
+            <div id="agreedFindings" class="findings-list compact"></div>
+          </div>
+          <div class="split-findings">
+            <div>
+              <h4>Only Rule Checker</h4>
+              <div id="ruleOnly" class="findings-list compact muted-list"></div>
+            </div>
+            <div>
+              <h4>Only AI Diagnosis</h4>
+              <div id="aiOnly" class="findings-list compact muted-list"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== HUMAN REVIEW ========== -->
+      <article class="card review-card" id="reviewCard">
+        <header class="card-head">
+          <div class="card-title-row">
+            <span class="chip chip-review">HUMAN REVIEW · MANDATORY</span>
+            <h3>Accept, Edit, or Reject</h3>
+          </div>
+          <p class="safety-banner">
+            <strong>AI provides recommendations only.</strong> Human reviewer makes the final decision. No automated fix is ever applied to a live network.
+          </p>
+        </header>
+
+        <div class="review-body">
+          <div class="review-edit" id="reviewEditBlock" hidden>
+            <label class="field field-wide">
+              <span class="field-label">Edit findings below (free-form)</span>
+              <textarea id="editedFindings" rows="14" spellcheck="false"></textarea>
+            </label>
+          </div>
+
+          <div class="review-notes-row">
+            <label class="field field-wide">
+              <span class="field-label" id="notesLabel">Reviewer notes (optional for Accept)</span>
+              <textarea id="reviewerNotes" rows="3" placeholder="Add any notes or justification for your decision..."></textarea>
+            </label>
+          </div>
+
+          <div class="review-actions">
+            <button class="btn btn-accept" type="button" id="btnAccept">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Accept
+            </button>
+            <button class="btn btn-edit" type="button" id="btnEdit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Edit
+            </button>
+            <button class="btn btn-reject" type="button" id="btnReject">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Reject
+            </button>
+            <button class="btn btn-ghost" type="button" id="btnCancelEdit" hidden>Cancel edit</button>
+          </div>
+
+          <div class="review-message" id="reviewMessage" role="status" aria-live="polite" hidden></div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="app-footer">
+      <p>NetSage AI v1 · Local only · Zero external dependencies · All diagnosis logic reused from <code>src/</code></p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
