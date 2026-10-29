@@ -1,0 +1,13 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Deploys the NetSage AI web UI (web_server.py) as a free web service.
+# The app reads Render's PORT env var and binds 0.0.0.0 automatically.
+services:
+  - type: web
+    name: netsage-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python web_server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"

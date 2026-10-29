@@ -422,18 +422,26 @@ def main():
     parser = argparse.ArgumentParser(
         description="NetSage AI — local web UI server (stdlib only)."
     )
-    parser.add_argument("--host", default="127.0.0.1",
-                        help="Bind address (default: 127.0.0.1, not exposed)")
-    parser.add_argument("--port", type=int, default=8765,
-                        help="Bind port (default: 8765)")
+    parser.add_argument("--host", default=None,
+                        help="Bind address (default: 127.0.0.1 locally, "
+                             "$HOST when set)")
+    parser.add_argument("--port", type=int, default=None,
+                        help="Bind port (default: 8765 locally, $PORT when set)")
     args = parser.parse_args()
 
-    server = ThreadingHTTPServer((args.host, args.port), NetSageWebHandler)
+    # Hosted platforms (e.g. Render) inject PORT and expect the app to listen
+    # on all interfaces, so we switch to 0.0.0.0 automatically in that case.
+    # Locally we keep the safe 127.0.0.1 default. Precedence: CLI flag > env > default.
+    env_port = os.environ.get("PORT")
+    host = args.host or os.environ.get("HOST") or ("0.0.0.0" if env_port else "127.0.0.1")
+    port = args.port or int(env_port or 8765)
+
+    server = ThreadingHTTPServer((host, port), NetSageWebHandler)
     print()
     print("=" * 62)
     print("  NetSage AI — Web UI Server")
     print("=" * 62)
-    print(f"  URL:       http://{args.host}:{args.port}/")
+    print(f"  URL:       http://{host}:{port}/")
     print(f"  Cases:     from {os.path.relpath(CASES_CSV, PROJECT_ROOT)}")
     print(f"  Reports:   saved to {os.path.relpath(RESULTS_DIR, PROJECT_ROOT)}/")
     print(f"  Backend:   reuses src/rule_checker.py, src/ai_diagnosis.py,")
